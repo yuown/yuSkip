@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07AC403C1ACC26290068B8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC403B1ACC26290068B8DD /* AppDelegate.swift */; };
-		07AC403E1ACC26290068B8DD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC403D1ACC26290068B8DD /* FirstViewController.swift */; };
-		07AC40401ACC26290068B8DD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC403F1ACC26290068B8DD /* SecondViewController.swift */; };
+		07AC403E1ACC26290068B8DD /* SkipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC403D1ACC26290068B8DD /* SkipController.swift */; };
+		07AC40401ACC26290068B8DD /* SessionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC403F1ACC26290068B8DD /* SessionsController.swift */; };
 		07AC40431ACC26290068B8DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07AC40411ACC26290068B8DD /* Main.storyboard */; };
 		07AC40451ACC26290068B8DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC40441ACC26290068B8DD /* Images.xcassets */; };
 		07AC40481ACC26290068B8DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AC40461ACC26290068B8DD /* LaunchScreen.xib */; };
@@ -30,8 +30,8 @@
 		07AC40361ACC26290068B8DD /* yuSkip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuSkip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AC403A1ACC26290068B8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07AC403B1ACC26290068B8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07AC403D1ACC26290068B8DD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		07AC403F1ACC26290068B8DD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		07AC403D1ACC26290068B8DD /* SkipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipController.swift; sourceTree = "<group>"; };
+		07AC403F1ACC26290068B8DD /* SessionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsController.swift; sourceTree = "<group>"; };
 		07AC40421ACC26290068B8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07AC40441ACC26290068B8DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07AC40471ACC26290068B8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				07AC403B1ACC26290068B8DD /* AppDelegate.swift */,
-				07AC403D1ACC26290068B8DD /* FirstViewController.swift */,
-				07AC403F1ACC26290068B8DD /* SecondViewController.swift */,
+				07AC403D1ACC26290068B8DD /* SkipController.swift */,
+				07AC403F1ACC26290068B8DD /* SessionsController.swift */,
 				07AC40411ACC26290068B8DD /* Main.storyboard */,
 				07AC40441ACC26290068B8DD /* Images.xcassets */,
 				07AC40461ACC26290068B8DD /* LaunchScreen.xib */,
@@ -215,9 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07AC40401ACC26290068B8DD /* SecondViewController.swift in Sources */,
+				07AC40401ACC26290068B8DD /* SessionsController.swift in Sources */,
 				07AC403C1ACC26290068B8DD /* AppDelegate.swift in Sources */,
-				07AC403E1ACC26290068B8DD /* FirstViewController.swift in Sources */,
+				07AC403E1ACC26290068B8DD /* SkipController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = yuSkip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,6 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = yuSkip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -411,6 +413,7 @@
 				07AC40591ACC26290068B8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07AC405A1ACC26290068B8DD /* Build configuration list for PBXNativeTarget "yuSkipTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +422,7 @@
 				07AC405C1ACC26290068B8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
