@@ -18,24 +18,21 @@ class SkipController: UIViewController {
     
     @IBOutlet var pauseSwitch: UISwitch!
     
-    @IBOutlet var slider: UISlider!
-    
-    @IBOutlet var accuracyLabel: UILabel!
-    
     @IBOutlet var startButton: UIButton!
     
     @IBOutlet var finishButton: UIButton!
     
     @IBOutlet var pauseResumeLabel: UILabel!
     
-    @IBAction func accuracySlider(sender: UISlider) {
-        accuracyLabel.text = "\(Int(sender.value))"
-    }
+    @IBOutlet var durationLabel: UILabel!
+    
+    var startTime: NSDate!
+    
+    var endTime: NSDate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        accuracyLabel.text = "\(Int(slider.value))"
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,13 +52,15 @@ class SkipController: UIViewController {
         motionManager.startDeviceMotionUpdatesToQueue(queue, withHandler: { (motion, error) -> Void in
             if(self.pauseSwitch.on == false) {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.motionMethod(motion)
+                    self.skipCounter(motion)
                 })
             }
         })
         
         statusLabel.text = "Started"
-        self.finishButton.enabled = true
+        finishButton.enabled = true
+        pauseSwitch.enabled = true
+        durationLabel.text = "0.0"
     }
     
     @IBAction func stopMotion(sender: UIButton) {
@@ -69,25 +68,41 @@ class SkipController: UIViewController {
             motionManager.stopDeviceMotionUpdates()
         }
         statusLabel.text = "Finished"
-        self.finishButton.enabled = false
+        finishButton.enabled = false
+        pauseSwitch.enabled = false
+        pauseSwitch.on = false
+        
+        if(appDelegate.counter > 0) {
+            var diff = Double(Double(Int(endTime.timeIntervalSinceDate(startTime) * 100)) / 100)
+            durationLabel.text = "\(diff)"
+        }
     }
     
-    func motionMethod(motion: CMDeviceMotion) {
+    func skipCounter(motion: CMDeviceMotion) {
         var userAcceleration = motion.userAcceleration
         var vector = sqrt(pow(userAcceleration.x,2) + pow(userAcceleration.y,2) + pow(userAcceleration.z,2));
         if (vector >= minimumSkippingAcceleration) {
             appDelegate.counter++
             skipCounter.text = "\(appDelegate.counter)"
+            
+            if(appDelegate.counter == 1) {
+                startTime = NSDate()
+            }
+            endTime = NSDate()
         }
     }
     
     @IBAction func handlePause(sender: UISwitch) {
-        if(pauseSwitch.on) {
+        changePauseSwitch(sender.on)
+    }
+    
+    func changePauseSwitch(flag: Bool){
+        if(flag) {
             statusLabel.text = "Paused"
-            self.pauseResumeLabel.text = "Resume"
+            pauseResumeLabel.text = "Resume"
         } else {
             statusLabel.text = "Skipping"
-            self.pauseResumeLabel.text = "Pause"
+            pauseResumeLabel.text = "Pause"
         }
     }
 }
